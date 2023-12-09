@@ -98,27 +98,33 @@ export default (editor, opts = {}) => {
     <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
   </svg>`,
   });
+
+  bm.add('tw-flex-container', {
+    category: 'Tailwind',
+    label: 'TW Flex container',
+    content: { type: 'tw-flex-container' },
+    media: `<svg viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
+  </svg>`,
+  });
+
   bm.add('tw-grid-3-container', {
     category: 'Tailwind',
     label: 'TW Grid 3 Col',
     content: { type: 'tw-grid-3-container' },
-    media: `<svg viewBox="0 0 23 24">
-    <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
-  </svg>`,
+    media: `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="3" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2"/>
+    <rect x="13" y="3" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2"/>
+    <rect x="3" y="13" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2"/>
+    <rect x="13" y="13" width="8" height="8" stroke="currentColor" fill="none" stroke-width="2"/>
+</svg>
+`,
   });
 
-  bm.add('tw-columns', {
+  bm.add('tw-grid-column', {
     category: 'Tailwind',
-    label: 'TW columns',
-    content: { type: 'tw-columns' },
-    media: `<svg viewBox="0 0 23 24">
-    <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM14 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
-</svg>`,
-  });
-  bm.add('tw-column', {
-    category: 'Tailwind',
-    label: 'TW column',
-    content: { type: 'tw-column' },
+    label: 'TW grid column',
+    content: { type: 'tw-grid-column' },
     media: `<svg viewBox="0 0 23 24">
     <path fill="currentColor" d="M9 20h4V4H9v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1Z"/>
 </svg>`,

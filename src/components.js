@@ -29,6 +29,19 @@ export default (editor, opts = {}) => {
       defaults: {
         content: `.`,
         traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
+        attributes: { class: 'container content-center mx-auto' }
+      },
+    },
+    view: {
+
+    },
+  });
+
+  domc.addType('tw-flex-container', {
+    model: {
+      defaults: {
+        content: `.`,
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
         attributes: { class: 'container content-center mx-auto flex justify-center p-4' }
       },
     },
@@ -37,7 +50,7 @@ export default (editor, opts = {}) => {
     },
   });
 
-  domc.addType('tw-column', {
+  domc.addType('tw-grid-column', {
     model: {
       defaults: {
         content: `Lorem Ipsum`,
@@ -49,18 +62,6 @@ export default (editor, opts = {}) => {
     view: {},
   });
   
-  domc.addType('tw-columns', {
-    model: {
-      defaults: {
-        content: `.`,
-        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
-        attributes: { class: 'flex gap-8' },
-        tagName: 'div'
-      },
-    },
-    view: {},
-  });
-
   domc.addType('tw-grid-3-container', {
     model: {
       defaults: {
