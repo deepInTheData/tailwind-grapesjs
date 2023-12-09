@@ -21,56 +21,69 @@ export default (editor, opts = {}) => {
       return `
       <textarea id="" cols="27" rows="20">${value}</textarea>
       <button class="btn" onclick="{document.getElementsByClassName('gjs-field-wrp--textarea')[0].getElementsByTagName('input')[0].value = document.getElementsByClassName('gjs-field-wrp--textarea')[0].getElementsByTagName('textarea')[0].value}">update, then tweak</button>`}
-    });
+  });
 
   const domc = editor.DomComponents;
-  
-
   domc.addType('tw-container', {
     model: {
       defaults: {
         content: `.`,
-        traits: ['id','title',{ label: 'text', type: 'text', name: 'content', changeProp: true }],
-        attributes: { class: 'container mx-auto flex justify-center p-4' }
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
+        attributes: { class: 'container content-center mx-auto flex justify-center p-4' }
       },
     },
     view: {
 
     },
   });
+
+  domc.addType('tw-column', {
+    model: {
+      defaults: {
+        content: `Lorem Ipsum`,
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
+        attributes: { class: 'flex justify-center text-6xl border-2 border-gray-300 rounded-xl p-6 bg-gray-100' },
+        tagName: 'div'
+      },
+    },
+    view: {},
+  });
+  
   domc.addType('tw-columns', {
     model: {
       defaults: {
         content: `.`,
-        traits: ['id','title',{ label: 'text', type: 'text', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
         attributes: { class: 'flex gap-8' },
-        tagName:'div'
+        tagName: 'div'
       },
     },
-    view: {
-
-    },
+    view: {},
   });
-  domc.addType('tw-column', {
+
+  domc.addType('tw-grid-3-container', {
     model: {
       defaults: {
-        content: `.`,
-        traits: ['id','title',{ label: 'text', type: 'text', name: 'content', changeProp: true }],
-        attributes: { class: 'w-full' },
-        tagName:'div'
+        content: `Insert tw-column here`,
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
+        attributes: { class: 'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6' },
+        tagName: 'div'
       },
     },
     view: {
 
     },
   });
+
+
+
   domc.addType('tw-paragraph', {
     model: {
       defaults: {
         content: `text`,
-        traits: ['id','title',{ label: 'text', type: 'text', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'text', type: 'text', name: 'content', changeProp: true }],
         attributes: { class: 'text-justify' },
-        tagName:'p'
+        tagName: 'p'
       },
     },
     view: {
@@ -80,11 +93,11 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-button', {
     model: {
       defaults: {
-        content: `button`,
-        traits: ['id','title',{ label: 'Button text', type: 'text', name: 'content', changeProp: true }],
-        tagName:'button',
+        content: `button txt`,
+        traits: ['id', 'title', { label: 'Button text', type: 'text', name: 'content', changeProp: true }],
+        tagName: 'button',
         editable: true,
-        attributes: { class: 'btn' }
+        attributes: { class: 'btn btn-neutral' }
       },
     },
     view: {
@@ -99,8 +112,8 @@ export default (editor, opts = {}) => {
           <li><a>Item 1</a></li>
           <li><a>Item 2</a></li>
         </ul>`,
-        traits: ['id','title',{ label: 'Dropdown text', type: 'text', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Dropdown text', type: 'text', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
         attributes: { class: 'dropdown' }
       },
@@ -123,8 +136,8 @@ export default (editor, opts = {}) => {
             </div>
           </div>
         </div>`,
-        traits: ['id','title',{ label: 'Modal code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Modal code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -140,8 +153,8 @@ export default (editor, opts = {}) => {
         <div class="swap-on">ON</div>
         <div class="swap-off">OFF</div>
       </label>`,
-        traits: ['id','title',{ label: 'swap code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'swap code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -162,8 +175,8 @@ export default (editor, opts = {}) => {
           <button class="btn btn-sm btn-primary">Accept</button>
         </div>
       </div>`,
-        traits: ['id','title',{ label: 'alert code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'alert code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -176,11 +189,11 @@ export default (editor, opts = {}) => {
       defaults: {
         content: `<div class="avatar">
         <div class="w-24 rounded-full">
-          <img src="https://placeimg.com/192/192/people" />
+          <img src="https://placehold.co/192x192.png" />
         </div>
       </div>`,
-        traits: ['id','title',{ label: 'avatar code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'avatar code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -192,8 +205,8 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
         content: `<div class="badge">neutral</div>`,
-        traits: ['id','title',{ label: 'badge code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'badge code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -205,17 +218,17 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
         content: `<div class="card w-96 bg-base-100 shadow-xl">
-        <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>`,
-        traits: ['id','title',{ label: 'card code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+                  <figure><img src="https://placehold.co/400x225.png" alt="Shoes" /></figure>
+                  <div class="card-body">
+                    <h2 class="card-title">Shoes!</h2>
+                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div class="card-actions justify-end">
+                      <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                  </div>
+                </div>`,
+        traits: ['id', 'title', { label: 'card code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -228,29 +241,29 @@ export default (editor, opts = {}) => {
       defaults: {
         content: `<div class="w-64 carousel rounded-box">
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div> 
         <div class="carousel-item w-full">
-          <img src="https://placeimg.com/256/400/arch" class="w-full" alt="Tailwind CSS Carousel component" />
+          <img src="https://placehold.co/256x400.png" class="w-full" alt="Tailwind CSS Carousel component" />
         </div>
       </div>`,
-        traits: ['id','title',{ label: 'Carousel code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Carousel code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -281,8 +294,8 @@ export default (editor, opts = {}) => {
           Delivered
         </div>
       </div>`,
-        traits: ['id','title',{ label: 'bubble code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'bubble code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -302,8 +315,8 @@ export default (editor, opts = {}) => {
           <p>hello</p>
         </div>
       </div>`,
-        traits: ['id','title',{ label: 'Collapse code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Collapse code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -317,8 +330,8 @@ export default (editor, opts = {}) => {
         content: `<span class="countdown">
         <span style="--value:10;"></span>
       </span>`,
-        traits: ['id','title',{ label: 'Countdown code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Countdown code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -330,8 +343,8 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
         content: `<kbd class="kbd">A</kbd>`,
-        traits: ['id','title',{ label: 'Kbd code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Kbd code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -343,8 +356,8 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
         content: `<progress class="progress w-56"></progress>`,
-        traits: ['id','title',{ label: 'Progress code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Progress code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -356,8 +369,8 @@ export default (editor, opts = {}) => {
     model: {
       defaults: {
         content: `<div class="radial-progress" style="--value:70;">70%</div>`,
-        traits: ['id','title',{ label: 'Radial code', type: 'textarea', name: 'content', changeProp: true }],
-        tagName:'div',
+        traits: ['id', 'title', { label: 'Radial code', type: 'textarea', name: 'content', changeProp: true }],
+        tagName: 'div',
         editable: true,
       },
     },
@@ -368,7 +381,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Stat', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Stat code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Stat code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="stats shadow">
   
         <div class="stat">
@@ -380,7 +393,7 @@ export default (editor, opts = {}) => {
           <div class="stat-desc">21% more than last month</div>
         </div>
         </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -391,7 +404,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Table', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Table code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Table code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="overflow-x-auto">
         <table class="table w-full">
           <!-- head -->
@@ -428,7 +441,7 @@ export default (editor, opts = {}) => {
           </tbody>
         </table>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -440,11 +453,11 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Tooltip', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Tooltip code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Tooltip code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="tooltip" data-tip="hello">
         <button class="btn">Hover me</button>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -455,9 +468,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Checkbox', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Checkbox code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Checkbox code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<input type="checkbox" checked="checked" class="checkbox" />`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -468,9 +481,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-File', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'File code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'File code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<input type="file" class="file-input w-full max-w-xs" />`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -481,9 +494,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Radio', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Radio code', type: 'text', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Radio code', type: 'text', name: 'content', changeProp: true }],
         content: `.`,
-        tagName:'input',
+        tagName: 'input',
         editable: true,
         attributes: { class: 'radio' }
       },
@@ -495,7 +508,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Range', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Range code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Range code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<input type="range" min="0" max="100" value="25" class="range" step="25" />
         <div class="w-full flex justify-between text-xs px-2">
           <span>|</span>
@@ -504,7 +517,7 @@ export default (editor, opts = {}) => {
           <span>|</span>
           <span>|</span>
         </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -515,7 +528,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Rating', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Rating code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Rating code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="rating">
         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
@@ -523,7 +536,7 @@ export default (editor, opts = {}) => {
         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
         <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -534,13 +547,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Select', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Select code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Select code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<select class="select select-bordered w-full max-w-xs">
         <option disabled selected>Who shot first?</option>
         <option>Han Solo</option>
         <option>Greedo</option>
       </select>`,
-        tagName:'select',
+        tagName: 'select',
         editable: true,
       },
     },
@@ -551,9 +564,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Input', {
     model: {
       defaults: {
-        traits: ['id','title', 'placeholder',{ label: 'Input value', type: 'text', name: 'content', changeProp: true }],
+        traits: ['id', 'title', 'placeholder', { label: 'Input value', type: 'text', name: 'content', changeProp: true }],
         content: `.`,
-        tagName:'input',
+        tagName: 'input',
         editable: true,
         attributes: { class: 'input input-bordered w-full max-w-xs' }
       },
@@ -565,9 +578,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Textarea', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Textarea code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Textarea code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<textarea class="textarea textarea-bordered" placeholder="Bio"></textarea>`,
-        tagName:'textarea',
+        tagName: 'textarea',
         editable: true,
       },
     },
@@ -578,9 +591,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Toggle', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Toggle code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Toggle code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<input type="checkbox" class="toggle" checked />`,
-        tagName:'input',
+        tagName: 'input',
         editable: true,
       },
     },
@@ -591,9 +604,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Artboard', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Artboard code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Artboard code', type: 'textarea', name: 'content', changeProp: true }],
         content: `568×320`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
         attributes: { class: 'artboard artboard-horizontal phone-1' }
       },
@@ -605,13 +618,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Buttongroup', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Buttongroup code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Buttongroup code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="btn-group">
         <button class="btn btn-active">Button</button>
         <button class="btn">Button</button>
         <button class="btn">Button</button>
       </div>`,
-        tagName:'input',
+        tagName: 'input',
         editable: true,
       },
     },
@@ -622,13 +635,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Divider', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Toggle code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Toggle code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="flex w-full">
         <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
         <div class="divider divider-horizontal">OR</div>
         <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -639,7 +652,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Drawer', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Drawer code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Drawer code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="drawer">
         <input id="my-drawer" type="checkbox" class="drawer-toggle" />
         <div class="drawer-content">
@@ -656,7 +669,7 @@ export default (editor, opts = {}) => {
           </ul>
         </div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -667,7 +680,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Footer', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Footer code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Footer code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<footer class="footer p-10 bg-neutral text-neutral-content">
         <div>
           <span class="footer-title">Services</span> 
@@ -690,7 +703,7 @@ export default (editor, opts = {}) => {
           <a class="link link-hover">Cookie policy</a>
         </div>
       </footer>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -701,10 +714,10 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Hero', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Hero code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Hero code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row">
-          <img src="https://placeimg.com/260/400/arch" class="max-w-sm rounded-lg shadow-2xl" />
+          <img src="https://placehold.co/260x400.png" class="max-w-sm rounded-lg shadow-2xl" />
           <div>
             <h1 class="text-5xl font-bold">Box Office News!</h1>
             <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
@@ -712,7 +725,7 @@ export default (editor, opts = {}) => {
           </div>
         </div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -723,12 +736,12 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Indicator', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Indicator code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Indicator code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="indicator">
         <span class="indicator-item badge badge-primary">new</span> 
         <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -739,14 +752,14 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Inputgroup', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Inputgroup code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Inputgroup code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="form-control">
         <label class="input-group input-group-vertical">
           <span>Email</span>
           <input type="text" placeholder="info@site.com" class="input input-bordered" />
         </label>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -757,9 +770,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Mask', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Mask code', type: 'textarea', name: 'content', changeProp: true }],
-        content: `<img class="mask mask-squircle" src="https://placeimg.com/160/160/arch" />`,
-        tagName:'img',
+        traits: ['id', 'title', { label: 'Mask code', type: 'textarea', name: 'content', changeProp: true }],
+        content: `<img class="mask mask-squircle" src="https://placehold.co/160x160.png" />`,
+        tagName: 'img',
         editable: true,
       },
     },
@@ -770,13 +783,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Stack', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Stack code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Stack code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="stack">
         <div class="grid w-32 h-20 rounded bg-primary text-primary-content place-content-center">1</div> 
         <div class="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">2</div> 
         <div class="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">3</div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -787,7 +800,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Toast', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Toast code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Toast code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="toast toast-top toast-start">
         <div class="alert alert-info">
           <div>
@@ -800,7 +813,7 @@ export default (editor, opts = {}) => {
           </div>
         </div>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -811,7 +824,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Breadcrumbs', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Breadcrumbs code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Breadcrumbs code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="text-sm breadcrumbs">
         <ul>
           <li><a>Home</a></li> 
@@ -819,7 +832,7 @@ export default (editor, opts = {}) => {
           <li>Add Document</li>
         </ul>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -830,7 +843,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Bottomnavigation', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Bottomnavigation code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Bottomnavigation code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="btm-nav">
         <button>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
@@ -842,7 +855,7 @@ export default (editor, opts = {}) => {
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
         </button>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -853,10 +866,10 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Link', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Link code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Link code', type: 'textarea', name: 'content', changeProp: true }],
         attributes: { class: 'link' },
         content: `link`,
-        tagName:'a',
+        tagName: 'a',
         editable: true,
       },
     },
@@ -867,13 +880,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Menu', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Menu code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Menu code', type: 'textarea', name: 'content', changeProp: true }],
         attributes: { class: 'menu bg-base-100 w-56 rounded-box' },
         content: `<li><a>Item 1</a></li>
         <li><a>Item 2</a></li>
         <li><a>Item 3</a></li>
       </ul>`,
-        tagName:'ul',
+        tagName: 'ul',
         editable: true,
       },
     },
@@ -884,7 +897,7 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Navbar', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Navbar code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Navbar code', type: 'textarea', name: 'content', changeProp: true }],
         attributes: { class: 'navbar bg-base-100' },
         content: `<div class="flex-1">
           <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -905,7 +918,7 @@ export default (editor, opts = {}) => {
             <li><a>Item 3</a></li>
           </ul>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -916,13 +929,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Pagination', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Pagination code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Pagination code', type: 'textarea', name: 'content', changeProp: true }],
         attributes: { class: 'btn-group' },
         content: `<button class="btn">1</button>
         <button class="btn btn-active">2</button>
         <button class="btn">3</button>
         <button class="btn">4</button>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -933,14 +946,14 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Steps', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Steps code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Steps code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<ul class="steps">
         <li class="step step-primary">Register</li>
         <li class="step step-primary">Choose plan</li>
         <li class="step">Purchase</li>
         <li class="step">Receive Product</li>
       </ul>`,
-        tagName:'ul',
+        tagName: 'ul',
         editable: true,
       },
     },
@@ -951,13 +964,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Tabs', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Tabs code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Tabs code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="tabs">
         <a class="tab tab-bordered">Tab 1</a> 
         <a class="tab tab-bordered tab-active">Tab 2</a> 
         <a class="tab tab-bordered">Tab 3</a>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -968,13 +981,13 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Code', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Code code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Code code', type: 'textarea', name: 'content', changeProp: true }],
         content: `<div class="mockup-code">
         <pre data-prefix="$"><code>npm i daisyui</code></pre> 
         <pre data-prefix=">" class="text-warning"><code>installing...</code></pre> 
         <pre data-prefix=">" class="text-success"><code>Done!</code></pre>
       </div>`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
       },
     },
@@ -985,9 +998,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Phone', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Phone code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Phone code', type: 'textarea', name: 'content', changeProp: true }],
         content: `.`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
         attributes: { class: 'mockup-phone border bg-base-300' }
       },
@@ -999,9 +1012,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-camera', {
     model: {
       defaults: {
-        traits: ['id','title'],
+        traits: ['id', 'title'],
         content: ``,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
         attributes: { class: 'camera' }
       },
@@ -1013,9 +1026,9 @@ export default (editor, opts = {}) => {
   domc.addType('daisy-Window', {
     model: {
       defaults: {
-        traits: ['id','title',{ label: 'Window code', type: 'textarea', name: 'content', changeProp: true }],
+        traits: ['id', 'title', { label: 'Window code', type: 'textarea', name: 'content', changeProp: true }],
         content: `.`,
-        tagName:'div',
+        tagName: 'div',
         editable: true,
         attributes: { class: 'mockup-window border bg-base-300' }
       },

@@ -2,11 +2,49 @@
 # Web/Mobile HTML Builder & Editor 🚀
 ### No-code HTML builder for your web and mobile apps based on [DaisyUI](https://daisyui.com/docs/install/) and [Tailwind](https://tailwindcss.com/docs).
 
-###### Built for you by [Vocamen](https://www.vocamen.com) with love 🤍
-# 
-Feel free to use as-is, and contribute (it's really easy):
 
-🥇[ONLINE BUILDER](https://html-builder.vocamen.com/dist/)
+
+## Quick start
+
+```js
+// Add component
+domc.addType('daisy-button', {
+  model: {
+    defaults: {
+      content: `button txt`, // inner HTML text
+      // for UI modification
+      traits: ['id', 'title', { label: 'Button text', type: 'text', name: 'content', changeProp: true }], 
+
+      // <button>button txt</button>
+      tagName: 'button',
+      editable: true,
+
+      // class='btn btn-neutral'
+      attributes: { class: 'btn btn-neutral' }
+    },
+  },
+  view: {
+
+  },
+});
+
+// Use it in blocks.js
+// defined from 'daisy-button' in components.js
+bm.add('d-button', {
+  category: 'Actions',
+  name: 'd-button',
+  label: 'Daisy button',
+  content: { 
+    type: 'daisy-button',
+  },
+
+  // HTML/SVG in the block manager
+  media: '<button class="btn">button</button>',
+});
+
+
+```
+
 
 ## Summary
 `TL;DR` Simply click ONLINE BUILDER and start building your HTML page.

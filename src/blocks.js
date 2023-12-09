@@ -1,6 +1,95 @@
 export default (editor, opts = {}) => {
   const bm = editor.BlockManager;
 
+  bm.add('d-Artboard', {
+    category: 'Layout',
+    name: 'd-Artboard',
+    label: 'Daisy Artboard',
+    content: { type: 'daisy-Artboard' },
+    media: 'Artboard',
+  });
+
+  bm.add('d-Buttongroup', {
+    category: 'Layout',
+    name: 'd-Buttongroup',
+    label: 'Daisy Buttongroup',
+    content: { type: 'daisy-Buttongroup' },
+    media: '<div class="btn-group"><input type="radio" name="options" data-title="1" class="btn" /><input type="radio" name="options" data-title="2" class="btn" checked /></div>',
+  });
+
+  bm.add('d-Divider', {
+    category: 'Layout',
+    name: 'd-Divider',
+    label: 'Daisy Divider',
+    content: { type: 'daisy-Divider' },
+    media: '  <div class="divider">OR</div>',
+  });
+
+  bm.add('d-Drawer', {
+    category: 'Layout',
+    name: 'd-Drawer',
+    label: 'Daisy Drawer',
+    content: { type: 'daisy-Drawer' },
+    media: 'Drawer',
+  });
+
+  bm.add('d-Footer', {
+    category: 'Layout',
+    name: 'd-Footer',
+    label: 'Daisy Footer',
+    content: { type: 'daisy-Footer' },
+    media: 'Footer',
+  });
+
+  bm.add('d-Hero', {
+    category: 'Layout',
+    name: 'd-Hero',
+    label: 'Daisy Hero',
+    content: { type: 'daisy-Hero' },
+    media: 'Hero',
+  });
+
+  bm.add('d-Indicator', {
+    category: 'Layout',
+    name: 'd-Indicator',
+    label: 'Daisy Indicator',
+    content: { type: 'daisy-Indicator' },
+    media: '<div class="indicator"><span class="indicator-item badge badge-primary">new</span> <div class="grid w-16 h-16 bg-base-300 place-items-center">content</div></div>',
+  });
+
+  bm.add('d-Inputgroup', {
+    category: 'Layout',
+    name: 'd-Inputgroup',
+    label: 'Daisy Inputgroup',
+    content: { type: 'daisy-Inputgroup' },
+    media: '<div class="form-control"><label class="input-group input-group-vertical"><span>Email</span><input type="text" placeholder="info@site.com" class="input input-bordered" /></label></div>',
+  });
+
+  bm.add('d-Mask', {
+    category: 'Layout',
+    name: 'd-Mask',
+    label: 'Daisy Mask',
+    content: { type: 'daisy-Mask' },
+    media: '<img class="mask mask-squircle" src="https://placehold.co/160x160.png" />',
+  });
+
+  bm.add('d-Stack', {
+    category: 'Layout',
+    name: 'd-Stack',
+    label: 'Daisy Stack',
+    content: { type: 'daisy-Stack' },
+    media: '<div class="stack"><div class="grid w-8 h-16 rounded bg-primary text-primary-content place-content-center">1</div> <div class="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">2</div> <div class="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">3</div></div>',
+  });
+
+  bm.add('d-Toast', {
+    category: 'Layout',
+    name: 'd-Toast',
+    label: 'Daisy Toast',
+    content: { type: 'daisy-Toast' },
+    media: '<div class="toast toast-top toast-start"><div class="alert alert-info"><div><span>New mail arrived.</span></div></div></div>',
+  });
+
+
   bm.add('tw-container', {
     category: 'Tailwind',
     label: 'TW container',
@@ -9,33 +98,48 @@ export default (editor, opts = {}) => {
     <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
   </svg>`,
   });
-  bm.add('tw-columns', {
+  bm.add('tw-grid-3-container', {
     category: 'Tailwind',
-    label: 'TW columns',
-    content: { type: 'tw-columns'},
+    label: 'TW Grid 3 Col',
+    content: { type: 'tw-grid-3-container' },
     media: `<svg viewBox="0 0 23 24">
     <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
   </svg>`,
   });
+
+  bm.add('tw-columns', {
+    category: 'Tailwind',
+    label: 'TW columns',
+    content: { type: 'tw-columns' },
+    media: `<svg viewBox="0 0 23 24">
+    <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM14 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
+</svg>`,
+  });
   bm.add('tw-column', {
     category: 'Tailwind',
     label: 'TW column',
-    content: { type: 'tw-column'}, 
-    media: `column`,
+    content: { type: 'tw-column' },
+    media: `<svg viewBox="0 0 23 24">
+    <path fill="currentColor" d="M9 20h4V4H9v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1Z"/>
+</svg>`,
   });
   bm.add('tw-paragraph', {
     category: 'Tailwind',
     label: 'TW paragraph',
-    content: { type: 'tw-paragraph'}, 
+    content: { type: 'tw-paragraph', content: "lorem ipsum" },
     media: `TEXT`,
   });
+  // defined from 'daisy-button' in components.js
   bm.add('d-button', {
     category: 'Actions',
     name: 'd-button',
     label: 'Daisy button',
-    content: { type: 'daisy-button' },
+    content: { 
+      type: 'daisy-button',
+    },
     media: '<button class="btn">button</button>',
   });
+
   bm.add('d-dropdown', {
     category: 'Actions',
     name: 'd-dropdown',
@@ -69,7 +173,7 @@ export default (editor, opts = {}) => {
     name: 'd-avatar',
     label: 'Daisy avatar',
     content: { type: 'daisy-avatar' },
-    media: '<img src="https://placeimg.com/192/192/people" />',
+    media: '<img src="https://placehold.co/192x192.png" />',
   });
   bm.add('d-badge', {
     category: 'Data Display',
@@ -83,14 +187,14 @@ export default (editor, opts = {}) => {
     name: 'd-card',
     label: 'Daisy card',
     content: { type: 'daisy-card' },
-    media: '<img src="https://placeimg.com/400/225/arch" alt="Shoes" />',
+    media: '<img src="https://placehold.co/400x225.png" alt="Shoes" />',
   });
   bm.add('d-Carousel', {
     category: 'Data Display',
     name: 'd-Carousel',
     label: 'Daisy Carousel',
     content: { type: 'daisy-Carousel' },
-    media: '<img src="https://placeimg.com/400/300/arch" alt="Burger" />',
+    media: '<img src="https://placehold.co/400x300.png" alt="Burger" />',
   });
   bm.add('d-bubble', {
     category: 'Data Display',
@@ -218,93 +322,7 @@ export default (editor, opts = {}) => {
     content: { type: 'daisy-Toggle' },
     media: '<div class="form-control"><label class="label cursor-pointer"><input type="checkbox" class="toggle" checked /></label></div>',
   });
-  bm.add('d-Artboard', {
-    category: 'Layout',
-    name: 'd-Artboard',
-    label: 'Daisy Artboard',
-    content: { type: 'daisy-Artboard' },
-    media: 'Artboard',
-  });
 
-  bm.add('d-Buttongroup', {
-    category: 'Layout',
-    name: 'd-Buttongroup',
-    label: 'Daisy Buttongroup',
-    content: { type: 'daisy-Buttongroup' },
-    media: '<div class="btn-group"><input type="radio" name="options" data-title="1" class="btn" /><input type="radio" name="options" data-title="2" class="btn" checked /></div>',
-  });
-
-  bm.add('d-Divider', {
-    category: 'Layout',
-    name: 'd-Divider',
-    label: 'Daisy Divider',
-    content: { type: 'daisy-Divider' },
-    media: '  <div class="divider">OR</div>',
-  });
-
-  bm.add('d-Drawer', {
-    category: 'Layout',
-    name: 'd-Drawer',
-    label: 'Daisy Drawer',
-    content: { type: 'daisy-Drawer' },
-    media: 'Drawer',
-  });
-
-  bm.add('d-Footer', {
-    category: 'Layout',
-    name: 'd-Footer',
-    label: 'Daisy Footer',
-    content: { type: 'daisy-Footer' },
-    media: 'Footer',
-  });
-
-  bm.add('d-Hero', {
-    category: 'Layout',
-    name: 'd-Hero',
-    label: 'Daisy Hero',
-    content: { type: 'daisy-Hero' },
-    media: 'Hero',
-  });
-
-  bm.add('d-Indicator', {
-    category: 'Layout',
-    name: 'd-Indicator',
-    label: 'Daisy Indicator',
-    content: { type: 'daisy-Indicator' },
-    media: '<div class="indicator"><span class="indicator-item badge badge-primary">new</span> <div class="grid w-16 h-16 bg-base-300 place-items-center">content</div></div>',
-  });
-
-  bm.add('d-Inputgroup', {
-    category: 'Layout',
-    name: 'd-Inputgroup',
-    label: 'Daisy Inputgroup',
-    content: { type: 'daisy-Inputgroup' },
-    media: '<div class="form-control"><label class="input-group input-group-vertical"><span>Email</span><input type="text" placeholder="info@site.com" class="input input-bordered" /></label></div>',
-  });
-
-  bm.add('d-Mask', {
-    category: 'Layout',
-    name: 'd-Mask',
-    label: 'Daisy Mask',
-    content: { type: 'daisy-Mask' },
-    media: '<img class="mask mask-squircle" src="https://placeimg.com/160/160/arch" />',
-  });
-
-  bm.add('d-Stack', {
-    category: 'Layout',
-    name: 'd-Stack',
-    label: 'Daisy Stack',
-    content: { type: 'daisy-Stack' },
-    media: '<div class="stack"><div class="grid w-8 h-16 rounded bg-primary text-primary-content place-content-center">1</div> <div class="grid w-32 h-20 rounded bg-accent text-accent-content place-content-center">2</div> <div class="grid w-32 h-20 rounded bg-secondary text-secondary-content place-content-center">3</div></div>',
-  });
-
-  bm.add('d-Toast', {
-    category: 'Layout',
-    name: 'd-Toast',
-    label: 'Daisy Toast',
-    content: { type: 'daisy-Toast' },
-    media: '<div class="toast toast-top toast-start"><div class="alert alert-info"><div><span>New mail arrived.</span></div></div></div>',
-  });
   bm.add('d-Breadcrumbs', {
     category: 'Navigation',
     name: 'd-Breadcrumbs',
